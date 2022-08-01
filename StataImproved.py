@@ -129,6 +129,7 @@ class lines_to_stataCommand(sublime_plugin.TextCommand):
 	def run(self, edit): 
 		selectedcode = ""
 		sels = self.view.sel()
+		self.view.run_command("expand_selection", {"to": "line"})
 		for sel in sels:
 			selectedcode = selectedcode + self.view.substr(sel)
 		if len(selectedcode) == 0:
